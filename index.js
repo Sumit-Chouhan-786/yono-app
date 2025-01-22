@@ -14,11 +14,10 @@ const app = express();
 app.use(cookieParser());
 app.use(cors());
 
-
-
-// Define the port and host for the server
-const port = process.env.PORT || 3000;
-const host = process.env.HOST || "localhost";
+const PORT = process.env.PORT;
+const DB_URL = process.env.DB_URL;
+const JWT_SECRET = process.env.JWT_SECRET;
+const HOST = process.env.HOST;
 
 // Middleware for logging HTTP requests
 app.use(morgan("dev"));
