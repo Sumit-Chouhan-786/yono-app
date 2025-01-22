@@ -1,0 +1,120 @@
+<!-- Include the admin header -->
+<%- include('../layout/admin-header.ejs') %>
+
+    <section class="vh-100 d-flex flex-column">
+        <nav class="d-flex justify-content-between align-items-center navbar px-sm-3 px-2 py-3 bg-dark">
+            <div class="d-flex align-items-center gap-2">
+                <div onclick="toggleSidebar()" class="d-lg-none d-flex flex-column justify-content-between toggle_icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <a class="text-white" href="/admin/dashboard">
+                    Logo
+                    <!-- <img height="45" width="45" class="w-100"
+                                        src="/assets/img/logo.png" alt="logo"> -->
+                </a>
+            </div>
+            <a class="text-white d-flex align-items-center gap-2" href="/admin/logout">Logout<i
+                    class="fa-solid fa-right-from-bracket pt-1"></i></a>
+        </nav>
+        <div class="flex-grow-1 overflow-hidden">
+            <div class="row h-100 overflow-hidden">
+                    <div class="col-xl-2 h-100 col-lg-3 px-0 overflow_scroll sidebar_col bg-light">
+                        <div class="sidebar">
+                            <div class="accordion overflow_x_hidden" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="one">
+                                        <span
+                                            class="accordion-button collapsed d-flex  align-items-center justify-content-between pe-2 ps-xl-5 py-2"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseone" aria-expanded="false"
+                                            aria-controls="collapseone">
+                                            <div class="d-flex align-content-center gap-3 fw-medium">
+                                                <i class="fa-solid fa-sliders"></i>
+                                                Slider
+                                            </div>
+                    
+                                        </span>
+                                    </h2>
+                                    <div id="collapseone" class="accordion-collapse collapse ps-xl-5" aria-labelledby="one"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <a href="/admin/add-slider" class="sub-item">Add Slider</a>
+                                            <a href="/admin/all-sliders" class="sub-item">All Slider</a>
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="three">
+                                        <span
+                                            class="accordion-button collapsed d-flex  align-items-center justify-content-between pe-2 ps-xl-5 py-2"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                            aria-controls="collapseThree">
+                                            <div class="d-flex align-content-center gap-3 fw-medium">
+                                                <i class="fa-brands fa-app-store-ios"></i>
+                                                App
+                                            </div>
+                    
+                                        </span>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse ps-xl-5" aria-labelledby="three"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <a href="/admin/add-app" class="sub-item">Add App</a>
+                                            <a href="/admin/all-apps" class="sub-item">All App</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-xl-10 col-lg-9 bg_gray h-100 col-12 mb-3 pt-4  overflow_scroll d-flex">
+                    <div class="w-100 px-3">
+                        <h2>All Sliders</h2>
+                        <div class="overflow-x-scroll">
+                    <table class="table table-bordered" style="min-width: 600px;">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (sliders && sliders.length> 0) { %>
+                                <% sliders.forEach(slider=> { %>
+                                    <tr>
+                                        <td>
+                                            <% if (slider.image) { %>
+                                                <img src="/uploads/<%= slider.image %>" alt="Slider Image" width="50">
+                                                <% } else { %>
+                                                    <span>No Image</span>
+                                                    <% } %>
+                                        </td>
+                    
+                                        <td>
+                                            <a href="/admin/edit-slider/<%= slider._id %>" class="btn btn-warning btn-sm">Edit</a>
+                                            <a href="/admin/delete-slider/<%= slider._id %>" class="btn btn-danger btn-sm"
+                                                onclick="return confirm('Are you sure you want to delete this slider?')">Delete</a>
+                                        </td>
+                                    </tr>
+                                    <% }); %>
+                                        <% } else { %>
+                                            <tr>
+                                                <td colspan="2" class="text-center">No Sliders Found</td>
+                                            </tr>
+                                            <% } %>
+                        </tbody>
+                    </table>
+
+
+                        </div>
+
+                        <%- include('../layout/admin-footer.ejs') %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%- include('../layout/admin-footer.ejs') %>

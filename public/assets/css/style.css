@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: "Roboto", "sans-serif";
+  text-decoration: none !important;
+  list-style-type: none !important;
+}
+
+.fs_xs {
+  font-size: 10px;
+}
+.fs_sm {
+  font-size: 14px;
+}
+.fs_md {
+  font-size: 20px;
+}
+
+.text_violat {
+  color: #540979;
+}
+
+.text_blue {
+  color: #004f7a;
+}
+
+.bg_green {
+  background-color: #359e2c;
+}
+
+.custom_container {
+  max-width: 754px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.cursor_pointer {
+  cursor: pointer;
+}
+.review_box {
+  border: 1px solid #ebebeb;
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+
+.filter_box {
+    width: 200px;
+    background: #fff;
+    z-index: 1000;
+    right: 9%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.responshiv_nav {
+  background-color: white;
+  width: 250px;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  gap: 10px;
+  box-shadow: 1px 0 10px 1px rgba(0, 0, 0, 0.238);
+  position: fixed;
+  left: -100%;
+  /* Initially hidden */
+  transition: left 0.3s ease;
+}
+
+.responshiv_nav a {
+  padding: 4px 12px;
+  color: black;
+  transition: all 300ms linear;
+}
+
+.responshiv_nav a:hover {
+  background-color: black;
+  padding: 4px 12px;
+  color: white;
+}
+
+.layer {
+  background-color: rgba(0, 0, 0, 0.151);
+  backdrop-filter: blur(2px);
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+  display: none;
+  /* Initially hidden */
+  top: 0;
+  left: 0;
+}
+
+.telegram_parent {
+  background-color: #f0f8ff;
+  border: 2px solid #004f7a;
+  padding: 8px;
+}
+
+.telegram_parent div p {
+  color: #004f7a;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.telegram_parent div button {
+  background-color: #004f7a;
+  border: none;
+  padding: 8px 24px;
+  font-size: 22px;
+}
+
+.shape1 {
+  width: 100px;
+  height: 10px;
+  border-bottom: 2px solid #540979;
+  border-right: 15px solid #540979;
+  transform: skewX(30deg);
+}
+
+.shape2 {
+  width: 100px;
+  height: 10px;
+  border-bottom: 2px solid #540979;
+  border-left: 15px solid #540979;
+  transform: skewX(-30deg);
+}
+
+.box {
+  background-color: white;
+  border: 1px solid gray;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.box img {
+  border-radius: 32px !important;
+}
+
+.box h3 {
+  font-size: 24px;
+}
+
+.box button {
+  font-size: 22px;
+  border-radius: 100px;
+  padding: 4px 20px;
+  background-color: #359e2c;
+  border: 1px solid black;
+  transition: all 300ms linear;
+}
+
+.box button:hover {
+  background-color: #004f7a;
+  color: white;
+  border: 1px solid transparent;
+}
+
+.marq_parent {
+  background-color: black;
+  border: 1px dotted white;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 100%;
+}
+
+footer {
+  background-color: black;
+}
+
+.social_links {
+  color: white;
+  font-size: 34px;
+}
+
+.footer_btn {
+  border: 1px solid white;
+  color: white;
+  padding: 2px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 30px;
+}
+.copyright {
+  color: white;
+  font-weight: 500;
+}
+.common_shadow {
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1), 5px 0 10px rgba(0, 0, 0, 0.1) !important;
+}
+.share_box {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topRankBox {
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.topRankBox:hover {
+  transform: translateY(-10px) rotateX(10deg) rotateY(10deg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.topRankBox:hover div button {
+  background-color: #004f7a;
+}
+
+.card-position-1 {
+  transform: perspective(800px) rotateY(-5deg);
+}
+
+.card-position-2 {
+  transform: perspective(800px) rotateY(0deg);
+}
+
+.card-position-3 {
+  transform: perspective(800px) rotateY(5deg);
+}
+
+/* Card image size */
+img {
+  max-width: 100%;
+  height: auto;
+}
+.no_content {
+  top: -4px;
+  right: -21%;
+  padding: 10px 50px 4px 50px;
+  rotate: 30deg;
+}
+.no_content h3 {
+  font-size: 20px;
+}
+
+@media (max-width: 576px) {
+  .box button {
+    font-size: 20px;
+    padding: 2px 10px;
+  }
+  .telegram_parent div p {
+  color: #004f7a;
+  font-size: 23px;
+  font-weight: bold;
+}
+  .no_content {
+    top: -8px;
+    right: -21%;
+    padding: 10px 32px 4px 38px;
+    rotate: 30deg;
+  }
+  .no_content h3 {
+    font-size: 16px;
+  }
+}
+
+
+.app_details_slider .slick-track{
+  margin-left: 0 !important;
+}
+
+/* Tab Accordian */
+
+.accordion{
+      --bs-accordion-btn-focus-box-shadow:unset !important;
+      --bs-accordion-bg:white !important;
+}
+
+.accordion-button {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-button{
+  background-color: white !important;
+}
+
+.accordion-button:hover {
+    background-color: white !important;
+
+}
+.accordion-item {
+  background-color: white !important;
+}
+.accordion-body {
+    background-color: white !important ;
+}
+.accordion-button:not(.collapsed){
+  background-color: white !important;
+}
+.accordion-body {
+    background-color: #f9f9f9;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.accordion-button:focus {
+    border-color: transparent;
+    box-shadow: none;
+}

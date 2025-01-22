@@ -1,0 +1,210 @@
+<!-- Include the admin header -->
+<%- include('../layout/admin-header.ejs') %>
+
+    <section class="vh-100 d-flex flex-column">
+        <nav class="d-flex justify-content-between align-items-center navbar px-sm-3 px-2 py-3 bg-dark">
+            <div class="d-flex align-items-center gap-2">
+                <div onclick="toggleSidebar()" class="d-lg-none d-flex flex-column justify-content-between toggle_icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <a class="text-white" href="/admin/dashboard">Logo</a>
+            </div>
+            <a class="text-white d-flex align-items-center gap-2" href="/admin/logout">Logout
+                <i class="fa-solid fa-right-from-bracket pt-1"></i>
+            </a>
+        </nav>
+        <div class="flex-grow-1 overflow-hidden">
+            <div class="row h-100 overflow-hidden">
+                <div class="col-xl-2 h-100 col-lg-3 px-0 overflow_scroll sidebar_col bg-light">
+                    <div class="sidebar">
+                        <div class="accordion overflow_x_hidden" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="one">
+                                    <span
+                                        class="accordion-button collapsed d-flex  align-items-center justify-content-between pe-2 ps-xl-5 py-2"
+                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapseone"
+                                        aria-expanded="false" aria-controls="collapseone">
+                                        <div class="d-flex align-content-center gap-3 fw-medium">
+                                            <i class="fa-solid fa-sliders"></i>
+                                            Slider
+                                        </div>
+
+                                    </span>
+                                </h2>
+                                <div id="collapseone" class="accordion-collapse collapse ps-xl-5" aria-labelledby="one"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <a href="/admin/add-slider" class="sub-item">Add Slider</a>
+                                        <a href="/admin/all-sliders" class="sub-item">All Slider</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="three">
+                                    <span
+                                        class="accordion-button collapsed d-flex  align-items-center justify-content-between pe-2 ps-xl-5 py-2"
+                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                        aria-expanded="false" aria-controls="collapseThree">
+                                        <div class="d-flex align-content-center gap-3 fw-medium">
+                                            <i class="fa-brands fa-app-store-ios"></i>
+                                            App
+                                        </div>
+
+                                    </span>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse ps-xl-5"
+                                    aria-labelledby="three" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <a href="/admin/add-app" class="sub-item">Add App</a>
+                                        <a href="/admin/all-apps" class="sub-item">All App</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-10 col-lg-9 bg_gray h-100 col-12 mb-3 overflow_scroll d-flex">
+                    <div class="px-3 pt-3 w-100">
+                        <h2>Edit App</h2>
+                        <form action="/admin/edit-app/<%= app._id %>" method="POST" enctype="multipart/form-data"
+                            id="appForm">
+                            <!-- Basic Fields -->
+                            <div class="mb-3">
+                                <label for="name" class="form-label">App Name</label>
+                                <input type="text" class="form-control" id="name" name="name" value="<%= app.name %>"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="price" class="form-label">App Price</label>
+                                <input type="text" class="form-control" id="price" name="price" value="<%= app.price %>"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="downloadUrl" class="form-label">Download Url</label>
+                                <input type="text" class="form-control" id="downloadUrl" name="downloadUrl"
+                                    value="<%= app.downloadUrl %>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea name="description" class="form-control" id="description" rows="1"
+                                    placeholder="Enter Description" required><%= app.description %></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">App Image</label>
+                                <input type="file" class="form-control" id="image" name="image">
+                                <% if (app.image) { %>
+                                    <img src="/<%= app.image %>" alt="Current Image" class="mt-2" width="100">
+                                    <% } %>
+                            </div>
+                            <!-- Rank Field (Updated for Edit) -->
+                            <div class="mb-3">
+                                <label for="rank" class="form-label">App Rank (Optional)</label>
+                                <select id="rank" name="rank" class="form-control">
+                                    <option value="" <% if (!app.rank) { %>selected<% } %>>Choose Rank (1-3)</option>
+                                    <option value="1" <% if (app.rank===1) { %>selected<% } %>>1 - Top Rank</option>
+                                    <option value="2" <% if (app.rank===2) { %>selected<% } %>>2 - Second Rank</option>
+                                    <option value="3" <% if (app.rank===3) { %>selected<% } %>>3 - Third Rank</option>
+                                </select>
+                            </div>
+
+                            <!-- SEO Fields -->
+                            <div class="mb-3">
+                                <label for="seoTitle" class="form-label">SEO Title</label>
+                                <input type="text" class="form-control" id="seoTitle" name="seoTitle"
+                                    value="<%= app.seoTitle %>">
+                            </div>
+                            <div class="mb-3">
+                                <label for="seoKeyword" class="form-label">SEO Keywords</label>
+                                <textarea class="form-control" id="seoKeyword" name="seoKeyword"
+                                    rows="3"><%= app.seoKeyword %></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="seoDescription" class="form-label">SEO Description</label>
+                                <textarea name="seoDescription" class="form-control" id="seoDescription" rows="1"
+                                    placeholder="Enter SEO Description"><%= app.seoDescription %></textarea>
+                            </div>
+
+                            <!-- FAQ Section -->
+                            <div class="mb-3">
+                                <label class="form-label">FAQs</label>
+                                <div id="faqContainer">
+                                    <% app.faq.forEach((faq, index)=> { %>
+                                        <div class="faq-item mb-2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h5>FAQ <%= index + 1 %>
+                                                </h5>
+                                                <button type="button" class="btn btn-danger btn-sm"
+                                                    onclick="removeFaq(this)">Remove</button>
+                                            </div>
+                                            <input type="text" name="faq[<%= index %>][heading]"
+                                                class="form-control mb-2" placeholder="Heading"
+                                                value="<%= faq.heading %>" required>
+                                            <textarea name="faq[<%= index %>][paragraph]" class="form-control mb-2"
+                                                rows="2" placeholder="Paragraph"
+                                                required><%= faq.paragraph %></textarea>
+                                        </div>
+                                        <% }); %>
+                                </div>
+                                <button type="button" class="btn btn-secondary mt-2" onclick="addFaq()">Add FAQ</button>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary">Update App</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('../layout/admin-footer.ejs') %>
+
+        <script>
+            let faqCount = "<%= app.faq.length %>";
+
+            function addFaq() {
+                const faqContainer = document.getElementById('faqContainer');
+                const faqItem = document.createElement('div');
+                faqItem.classList.add('faq-item', 'mb-2');
+                faqItem.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>FAQ ${faqCount + 1}</h5>
+                <button type="button" class="btn btn-danger btn-sm" onclick="removeFaq(this)">Remove</button>
+            </div>
+            <input type="text" name="faq[${faqCount}][heading]" class="form-control mb-2" placeholder="Heading" required>
+            <textarea name="faq[${faqCount}][paragraph]" class="form-control mb-2" rows="2" placeholder="Paragraph" required></textarea>
+        `;
+                faqContainer.appendChild(faqItem);
+                faqCount++;
+            }
+
+            function removeFaq(button) {
+                const faqItem = button.closest('.faq-item');
+                faqItem.remove();
+                faqCount--;
+            }
+
+            // TinyMCE initialization for description and SEO description
+            tinymce.init({
+                selector: '#description, #seoDescription',
+                plugins: 'advlist autolink lists link image charmap print preview anchor',
+                toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
+                setup: function (editor) {
+                    editor.on('init', function () {
+                        document.querySelector('#description').style.display = 'block';
+                        document.querySelector('#seoDescription').style.display = 'block';
+                    });
+                }
+            });
+
+            const form = document.querySelector('#appForm');
+            form.addEventListener('submit', (event) => {
+                const descriptionTextarea = document.querySelector('#description');
+                const seoDescriptionTextarea = document.querySelector('#seoDescription');
+                descriptionTextarea.value = tinymce.get('description').getContent();
+                seoDescriptionTextarea.value = tinymce.get('seoDescription').getContent();
+            });
+        </script>

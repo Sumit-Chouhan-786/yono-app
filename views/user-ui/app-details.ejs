@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        <%= app.seoTitle %>
+    </title>
+    <meta name="keywords" content="<%= app.seoKeyword %>">
+    <meta name="description" content="<%= app.seoDescription %>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/img/Logo.png">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+</head>
+
+<body>
+    <header>
+        <div class="layer"></div>
+        <div class="position-absolute d-flex flex-column responshiv_nav pt-3">
+            <i class="fa-solid mx-1 cursor_pointer fa-xmark text-black"></i>
+            <a href="#">home</a>
+            <a href="#">About</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <nav class="d-flex bg_green align-items-center py-2 justify-content-between custom_container position-relative">
+            <!-- Filter box -->
+            <div id="filter_box" class="filter_box position-absolute top-0 d-none">
+                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                <br>
+                <div class="overflow-y-scroll">
+                    <ul style="height: 160px;" class="list-group" id="myList">
+                        <% allApps.forEach(function(app) { %>
+                            <li class="list-group-item text-black">
+                                <a href="/app/<%= app.id %>">
+                                    <%= app.name %>
+                                </a>
+                            </li>
+                            <% }); %>
+                    </ul>
+                </div>
+            </div>
+            <!-- Navbar items -->
+            <i id="toggle" class="fa-solid cursor_pointer fa-bars text-white fs-4"></i>
+            <a class="text-white fw-bold" href="/"><img height="70" width="70" src="/assets/img/Logo.png"
+                    alt="logo"></a>
+            <a id="searchIcon" href="#"><i class="fa-solid text-white fs-5 fa-magnifying-glass"></i></a>
+        </nav>
+
+    </header>
+    <section class="custom_container py-3 common_shadow">
+        <div class="row align-items-center">
+            <div class="col-sm-5 col-8">
+                <div class="d-flex justify-content-between align-items-center gap-3">
+                    <div class="col-5">
+                        <div class="d-flex justify-content-center mt-3">
+                            <img style="object-fit: cover; height: 100px;border-radius: 20px;" height="100px"
+                                width="100px" src="/<%= app.image %>" alt="game app">
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <h5>
+                            <%= app.name %>
+                        </h5>
+                        <div class="fs_xs"><span>Yono App</span><img src="/assets/img/TRUSTED-icon.svg"
+                                alt="trusted icon"><span>Trusted</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-4 d-flex justify-content-end justify-content-sm-between">
+                <div class="col-sm-3">
+                    <div class="share_box"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" fill="none"
+                            viewBox="0 0 13 14">
+                            <path fill="#4C4C4C" fill-rule="evenodd"
+                                d="M10.542 9.896c-.534 0-1.012.21-1.377.54L4.154 7.52a2.3 2.3 0 00.063-.492 2.3 2.3 0 00-.063-.492l4.954-2.888a2.106 2.106 0 003.542-1.54A2.106 2.106 0 0010.543 0a2.106 2.106 0 00-2.108 2.108c0 .17.028.33.063.492L3.542 5.49A2.106 2.106 0 000 7.029a2.106 2.106 0 003.542 1.538l5.004 2.924a1.982 1.982 0 00-.056.457c0 1.131.92 2.052 2.052 2.052 1.132 0 2.052-.92 2.052-2.052 0-1.132-.92-2.052-2.052-2.052z"
+                                clip-rule="evenodd"></path>
+                        </svg></div>
+                </div>
+                <div class="col-sm-3 d-none d-sm-inline">
+                    <h5 class="mb-0 fs_sm fw-normal">10K+</h5>
+                    <p class="mb-0 fs_xs">Downloads</p>
+                </div>
+                <div class="col-sm-3 d-none d-sm-inline">
+                    <h5 class="mb-0 fs_sm fw-normal">10mb</h5>
+                    <p class="mb-0 fs_xs">Size</p>
+                </div>
+                <div class="col-sm-3 d-none d-sm-inline">
+                    <h5 class="mb-0 fs_sm fw-normal"><img class="mb-1 mx-1" src="/assets/img/android-icon.svg"
+                            alt="android-icon">5.0+</h5>
+                    <p class="mb-0 fs_xs">Android Version</p>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3 d-sm-none">
+                <div class="col-3">
+                    <h5 class="mb-0 fs_sm fw-normal">10K+</h5>
+                    <p class="mb-0 fs_xs">Downloads</p>
+                </div>
+                <div class="col-3">
+                    <h5 class="mb-0 fs_sm fw-normal">10mb</h5>
+                    <p class="mb-0 fs_xs">Size</p>
+                </div>
+                <div class="col-3">
+                    <h5 class="mb-0 fs_sm fw-normal"><img class="mb-1 mx-1" src="/assets/img/android-icon.svg"
+                            alt="android-icon">5.0+
+                    </h5>
+                    <p class="mb-0 fs_xs">Android Version</p>
+                </div>
+            </div>
+        </div>
+        <div class="review_box mt-3">
+            <div class="d-flex align-items-center justify-content-evenly">
+                <div class="d-flex gap-2">
+                    <div class="d-flex">
+                        <img height="10" width="10" src="/assets/img/golden-star.svg" alt="golden start">
+                        <img height="10" width="10" src="/assets/img/golden-star.svg" alt="golden start">
+                        <img height="10" width="10" src="/assets/img/golden-star.svg" alt="golden start">
+                        <img height="10" width="10" src="/assets/img/golden-star.svg" alt="golden start">
+                        <img height="10" width="10" src="/assets/img/golden-star.svg" alt="golden start">
+                    </div>
+                    <div class="fs_xs mb-0"> 4.2
+                        (54345 Reviews)
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <img height="16" width="12" src="/assets/img/PEGI-18.png" alt="18"><span
+                        class="ps-1 fs_sm">PEGI-18</span>
+                </div>
+            </div>
+            <div class="mt-2">
+            <a target="_blank" href="<%= app.downloadUrl %>">
+                <button class="bg_green w-100 py-lg-3 py-sm-2 py-1 border-0 rounded-3 text-white">DOWNLOAD</button>
+            </a>
+
+                </div>
+        </div>
+        <div>
+            <p class="fs_sm mb-2 mt-3">You may also like...</p>
+            <div class="row">
+                <div class="you_may_slider app_details_slider">
+                    <% allApps.forEach(app=> { %>
+                        <a class="col" href="/app/<%= app.id %>">
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="d-flex justify-content-center mt-3">
+                                    <img style="object-fit: cover; height: 100px;border-radius: 20px;" height="100px"
+                                        width="100px" src="/<%= app.image %>" alt="game app">
+                                </div>
+                                <p class="mb-0 fw-medium fs_xs text-black">
+                                    <%= app.name %>
+                                </p>
+                                <p class="mb-0 fs_xs text-black">₹500</p>
+                            </div>
+                        </a>
+                        <% }); %>
+                </div>
+            </div>
+            <div class="py-lg-5 py-4">
+                <div class="d-flex my-3 justify-content-center gap-2 align-items-end">
+                    <div class="shape1"></div>
+                    <h3 class="mb-0 text_violat fw-bold">FAQ'S</h3>
+                    <div class="shape2"></div>
+                </div>
+                <!-- accrodian pointer -->
+                <div class="container">
+                    <!-- Tab / Collapse Section -->
+                    <div class="tab-container">
+                        <div class="accordion" id="accordionExample">
+                            <% app.faq.forEach((faq, index)=> { %>
+                                <div class="accordion mt-2" id="accordionApp<%= app._id %>">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="heading<%= app._id %>-<%= index %>">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapse<%= app._id %>-<%= index %>"
+                                                aria-expanded="false"
+                                                aria-controls="collapse<%= app._id %>-<%= index %>">
+                                                <%= faq.heading %>
+                                            </button>
+                                        </h2>
+                                        <div id="collapse<%= app._id %>-<%= index %>"
+                                            class="accordion-collapse collapse"
+                                            aria-labelledby="heading<%= app._id %>-<%= index %>"
+                                            data-bs-parent="#accordionApp<%= app._id %>">
+                                            <div class="accordion-body">
+                                                <%= faq.paragraph %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% }); %>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- more yono app -->
+            <p class="fs_sm mb-2">More Yono Apps</p>
+            <div class="row">
+                <div class="more_yono_slider app_details_slider">
+                    <% allApps.forEach(app=> { %>
+                        <a class="col" href="/app/<%= app.id %>">
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="d-flex justify-content-center mt-3">
+                                    <img style="object-fit: cover; height: 100px;border-radius: 20px;" height="100px"
+                                        width="100px" src="/<%= app.image %>" alt="game app">
+                                </div>
+                                <p class="mb-0 fw-medium fs_xs text-black">
+                                    <%= app.name %>
+                                </p>
+                                <p class="mb-0 fs_xs text-black">₹500</p>
+                            </div>
+                        </a>
+                        <% }); %>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <footer class="custom_container px-0 py-4">
+        <div>
+            <h3 class="text-center text-white">CONNECT WITH US</h3>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#" class="social_links"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="social_links"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social_links"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="social_links"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+        <hr class="text-white">
+        <div class="d-flex gap-sm-3 flex-column align-items-center flex-sm-row justify-content-center">
+            <a href="#" class="footer_btn d-flex gap-2 align-items-center"><i class="fa-regular fa-user"></i>About
+                Us</a>
+            <a href="#" class="footer_btn d-flex mt-4 mt-sm-0 gap-2 align-items-center"><i
+                    class="fa-solid fa-phone"></i>Contact Us</a>
+            <a href="#" class="footer_btn d-flex mt-4 mt-sm-0 gap-2 align-items-center"><i
+                    class="fa-solid fa-shield-halved"></i>Privacy Policy</a><br>
+
+            <div class="d-flex justify-content-center d-sm-none   flex-column align-items-center flex-sm-row">
+                <a href="#" class="footer_btn d-flex gap-2 align-items-center"><i
+                        class="fa-solid fa-triangle-exclamation"></i>Disclaimer</a>
+                <a href="#" class="footer_btn d-flex gap-2 mt-4 align-items-center"><i
+                        class="fa-solid fa-address-card"></i>Terms & Condition</a>
+            </div>
+        </div>
+        <div class="d-sm-flex d-none justify-content-center mt-3 gap-3 flex-column align-items-center flex-sm-row">
+            <a href="#" class="footer_btn d-flex gap-2 align-items-center"><i
+                    class="fa-solid fa-triangle-exclamation"></i>Disclaimer</a>
+            <a href="#" class="footer_btn d-flex gap-2 align-items-center"><i class="fa-solid fa-address-card"></i>Terms
+                &
+                Condition</a>
+
+        </div>
+        <hr class="text-white">
+        <h3 class="copyright mb-0 text-center px-3">Copyright © All Yono App All Rights Reserved</h3>
+    </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="/assets/js/index.js"></script>
+    <script>
+        // JavaScript functionality
+        document.addEventListener("DOMContentLoaded", () => {
+            let searchIcon = document.getElementById("searchIcon");
+            let filter_box = document.getElementById("filter_box");
+
+            // Toggle visibility of the filter_box
+            searchIcon.addEventListener("click", () => {
+                filter_box.classList.toggle("d-none");
+                filter_box.classList.toggle("d-block");
+            });
+
+            // jQuery: Filter list items based on input
+            $(document).ready(function () {
+                $("#myInput").on("keyup", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#myList li").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                    });
+                });
+            });
+        });
+
+    </script>
+
+
+</body>
+
+</html>
