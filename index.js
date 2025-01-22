@@ -10,12 +10,14 @@ require("./db/connection");
 // Routes
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require("./routes/userRoutes");
+
 const app = express();
 app.use(cookieParser());
 app.use(cors());
 
-const PORT = process.env.PORT;
-const HOST = process.env.HOST;
+// Set the environment variables
+const PORT = process.env.PORT || 3000; // Default to 3000 if PORT is not set
+const HOST = process.env.HOST || "0.0.0.0"; // Default to "0.0.0.0" if HOST is not set
 
 // Middleware for logging HTTP requests
 app.use(morgan("dev"));
@@ -26,7 +28,7 @@ app.use(express.json());
 
 app.use(
   session({
-    secret: "your-secret-key",
+    secret: process.env.JWT_SECRET || "your-secret-key", // Use the JWT_SECRET from .env or fallback to a default
     resave: false,
     saveUninitialized: true,
   })
@@ -44,6 +46,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Serve uploaded files (e.g., images) from the 'uploads' directory
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 // Set up the views folder and EJS as the template engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -59,6 +62,6 @@ app.use((err, req, res, next) => {
 });
 
 // Start the Express server
-app.listen(port, host, () => {
+app.listen(PORT, HOST, () => {
   console.log(`Server is running on http://${HOST}:${PORT}`);
 });
