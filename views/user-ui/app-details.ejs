@@ -85,11 +85,11 @@
                         </svg></div>
                 </div>
                 <div class="col-sm-3 d-none d-sm-inline">
-                    <h5 class="mb-0 fs_sm fw-normal">10K+</h5>
+                    <h5 class="mb-0 fs_sm fw-normal"><%= app.downloads %></h5>
                     <p class="mb-0 fs_xs">Downloads</p>
                 </div>
                 <div class="col-sm-3 d-none d-sm-inline">
-                    <h5 class="mb-0 fs_sm fw-normal">10mb</h5>
+                    <h5 class="mb-0 fs_sm fw-normal"><%= app.size %></h5>
                     <p class="mb-0 fs_xs">Size</p>
                 </div>
                 <div class="col-sm-3 d-none d-sm-inline">
@@ -125,8 +125,8 @@
                         <img height="10" width="10" src="/assets/img/golden-star.svg" alt="golden start">
                         <img height="10" width="10" src="/assets/img/golden-star.svg" alt="golden start">
                     </div>
-                    <div class="fs_xs mb-0"> 4.2
-                        (54345 Reviews)
+                    <div class="fs_xs mb-0"> 
+                    <%= app.reviews %>
                     </div>
                 </div>
                 <div class="d-flex">

@@ -90,7 +90,9 @@
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
                                 <textarea name="description" class="form-control" id="description" rows="1"
-                                    placeholder="Enter Description" required><%= app.description %></textarea>
+                                    placeholder="Enter Description" required>
+                                <%= app.description %>
+                            </textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="image" class="form-label">App Image</label>
@@ -99,7 +101,7 @@
                                     <img src="/<%= app.image %>" alt="Current Image" class="mt-2" width="100">
                                     <% } %>
                             </div>
-                            <!-- Rank Field (Updated for Edit) -->
+                            <!-- Rank Field -->
                             <div class="mb-3">
                                 <label for="rank" class="form-label">App Rank (Optional)</label>
                                 <select id="rank" name="rank" class="form-control">
@@ -109,7 +111,22 @@
                                     <option value="3" <% if (app.rank===3) { %>selected<% } %>>3 - Third Rank</option>
                                 </select>
                             </div>
-
+                            <!-- Additional Fields -->
+                            <div class="mb-3">
+                                <label for="downloads" class="form-label">Downloads</label>
+                                <input type="text" class="form-control" id="downloads" name="downloads"
+                                    value="<%= app.downloads %>" placeholder="Enter number of downloads" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="size" class="form-label">App Size</label>
+                                <input type="text" class="form-control" id="size" name="size" value="<%= app.size %>"
+                                    placeholder="Enter app size (e.g., 20MB)" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="reviews" class="form-label">Reviews</label>
+                                <input type="text" class="form-control" id="reviews" name="reviews"
+                                    value="<%= app.reviews %>" placeholder="Enter reviews count or ratings" required>
+                            </div>
                             <!-- SEO Fields -->
                             <div class="mb-3">
                                 <label for="seoTitle" class="form-label">SEO Title</label>
@@ -124,9 +141,10 @@
                             <div class="mb-3">
                                 <label for="seoDescription" class="form-label">SEO Description</label>
                                 <textarea name="seoDescription" class="form-control" id="seoDescription" rows="1"
-                                    placeholder="Enter SEO Description"><%= app.seoDescription %></textarea>
+                                    placeholder="Enter SEO Description">
+                                <%= app.seoDescription %>
+                            </textarea>
                             </div>
-
                             <!-- FAQ Section -->
                             <div class="mb-3">
                                 <label class="form-label">FAQs</label>
@@ -150,10 +168,10 @@
                                 </div>
                                 <button type="button" class="btn btn-secondary mt-2" onclick="addFaq()">Add FAQ</button>
                             </div>
-
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary">Update App</button>
                         </form>
+
                     </div>
                 </div>
             </div>

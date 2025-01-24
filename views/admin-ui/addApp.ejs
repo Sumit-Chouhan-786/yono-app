@@ -85,14 +85,14 @@
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea name="description" class="form-control" id="description" rows="1"
-                                    placeholder="Enter Description" required readonly></textarea>
+                                <textarea name="description" class="form-control" id="description" rows="1" placeholder="Enter Description"
+                                    required readonly></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="image" class="form-label">App Image</label>
                                 <input type="file" class="form-control" id="image" name="image" required>
                             </div>
-                            <!-- Rank Field (Newly Added) -->
+                            <!-- Rank Field -->
                             <div class="mb-3">
                                 <label for="rank" class="form-label">App Rank (Optional)</label>
                                 <select id="rank" name="rank" class="form-control">
@@ -101,6 +101,22 @@
                                     <option value="2">2 - Second Rank</option>
                                     <option value="3">3 - Third Rank</option>
                                 </select>
+                            </div>
+                            <!-- Additional Fields -->
+                            <div class="mb-3">
+                                <label for="downloads" class="form-label">Downloads</label>
+                                <input type="text" class="form-control" id="downloads" name="downloads" placeholder="Enter number of downloads"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="size" class="form-label">App Size</label>
+                                <input type="text" class="form-control" id="size" name="size" placeholder="Enter app size (e.g., 20MB)"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="reviews" class="form-label">Reviews</label>
+                                <input type="text" class="form-control" id="reviews" name="reviews" placeholder="Enter reviews count or ratings"
+                                    required>
                             </div>
                             <!-- SEO Fields -->
                             <div class="mb-3">
@@ -116,7 +132,7 @@
                                 <textarea name="seoDescription" class="form-control" id="seoDescription" rows="1"
                                     placeholder="Enter SEO Description" readonly></textarea>
                             </div>
-
+                        
                             <!-- FAQ Section -->
                             <div class="mb-3">
                                 <label class="form-label">FAQs</label>
@@ -125,21 +141,20 @@
                                     <div class="faq-item mb-2">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <h5>FAQ 1</h5>
-                                            <button type="button" class="btn btn-danger btn-sm"
-                                                onclick="removeFaq(this)">Remove</button>
+                                            <button type="button" class="btn btn-danger btn-sm" onclick="removeFaq(this)">Remove</button>
                                         </div>
-                                        <input type="text" name="faq[0][heading]" class="form-control mb-2"
-                                            placeholder="Heading" required>
-                                        <textarea name="faq[0][paragraph]" class="form-control mb-2" rows="2"
-                                            placeholder="Paragraph" required></textarea>
+                                        <input type="text" name="faq[0][heading]" class="form-control mb-2" placeholder="Heading" required>
+                                        <textarea name="faq[0][paragraph]" class="form-control mb-2" rows="2" placeholder="Paragraph"
+                                            required></textarea>
                                     </div>
                                 </div>
                                 <button type="button" class="btn btn-secondary mt-2" onclick="addFaq()">Add FAQ</button>
                             </div>
-
+                        
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary">Add App</button>
                         </form>
+
                     </div>
                 </div>
             </div>

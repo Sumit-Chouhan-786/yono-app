@@ -18,6 +18,18 @@ const appSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    downloads: {
+      type: String,
+      required: true,
+    },
+    size: {
+      type: String,
+      required: true,
+    },
+    reviews: {
+      type: String,
+      required: true,
+    },
     image: {
       type: String,
       required: true,
