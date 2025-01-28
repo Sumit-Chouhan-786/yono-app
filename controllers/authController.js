@@ -12,7 +12,7 @@ const handleSignUp = async (req, res) => {
   try {
     const existingAdmin = await Admin.findOne({ email });
     if (existingAdmin) {
-      return res.render("signup", {
+      return res.render("admin-ui/signup.ejs", {
         title: "Admin Signup",
         error: "Email already exists",
       });
@@ -23,7 +23,7 @@ const handleSignUp = async (req, res) => {
     res.redirect("/admin/login");
   } catch (error) {
     console.error(error);
-    res.render("signUp", {
+    res.render("admin-ui/signUp.ejs", {
       title: "Admin Signup",
       error: "Something went wrong",
     });
