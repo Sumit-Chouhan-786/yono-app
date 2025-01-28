@@ -58,12 +58,17 @@
 
         <!-- telegram join button -->
         <div>
-            <div class="pt-3 heroSlider">
-                <% sliders.forEach(slider=> { %>
-                    <img class="w-100" src="/uploads/<%= slider.image %>" alt="Slider Image"
-                        style="max-height: 300px; border-radius: 20px;">
-                    <% }); %>
+            <div id="carouselExample" class="carousel slide pt_20" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-inner">
+                    <% sliders.forEach((slider, index)=> { %>
+                        <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                            <img class="d-block w-100 max_h_213" src="/uploads/<%= slider.image %>" alt="Slider Image"
+                                style="max-height: 300px; border-radius: 20px;" />
+                        </div>
+                        <% }); %>
+                </div>
             </div>
+
 
 
             <div class="row py-lg-5 py-4">

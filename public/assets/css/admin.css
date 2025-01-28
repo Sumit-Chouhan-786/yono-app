@@ -3,35 +3,35 @@
   box-sizing: border-box;
 }
 
- /* Orange Theme Customization */
-  .text-orange {
-    color: #0056b3;
-  }
+/* Orange Theme Customization */
+.text-orange {
+  color: #0056b3;
+}
 
-  .border-orange {
-    border-color: #0056b3 !important;
-  }
+.border-orange {
+  border-color: #0056b3 !important;
+}
 
-  .btn-orange {
-    background-color: #0056b3;
-    border: none;
-    color: white;
-  }
+.btn-orange {
+  background-color: #0056b3;
+  border: none;
+  color: white;
+}
 
-  .btn-orange:hover {
-    background-color: #0056b3;
-  }
+.btn-orange:hover {
+  background-color: #0056b3;
+}
 
-  .bg-orange {
-    background-color: #0056b3;
-  }
+.bg-orange {
+  background-color: #0056b3;
+}
 
 .admin_login_bg {
   background: #0056b3;
 }
 
 .navbar {
- background-color: #0056b3 !important ;
+  background-color: #0056b3 !important ;
   width: 100%;
   position: sticky;
   top: 0;
