@@ -23,6 +23,10 @@
 </head>
 
 <body>
+    <div id="layer"
+        style="height: 100vh; width: 100vh;background-color: rgba(0, 0, 0, 0.258); z-index: 1; position: fixed; display: none;">
+    </div>
+
     <header>
         <div class="layer"></div>
         <div class="position-absolute d-flex flex-column responshiv_nav pt-3">
@@ -286,26 +290,41 @@
         crossorigin="anonymous"></script>
     <script src="/assets/js/index.js"></script>
     <script>
-        // JavaScript functionality
-        document.addEventListener("DOMContentLoaded", () => {
+       document.addEventListener("DOMContentLoaded", () => {
             let searchIcon = document.getElementById("searchIcon");
             let filter_box = document.getElementById("filter_box");
+            let layer = document.getElementById("layer");
 
-            // Toggle visibility of the filter_box
-            searchIcon.addEventListener("click", () => {
+            // Function to toggle the filter box visibility
+            function toggleFilterBox() {
                 filter_box.classList.toggle("d-none");
                 filter_box.classList.toggle("d-block");
-            });
+                layer.classList.toggle("d-block");
+            }
 
-            // jQuery: Filter list items based on input
-            $(document).ready(function () {
-                $("#myInput").on("keyup", function () {
-                    var value = $(this).val().toLowerCase();
-                    $("#myList li").filter(function () {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-                    });
+            // Function to close the filter box when clicking outside (on layer)
+            function closeFilterBox() {
+                filter_box.classList.add("d-none");
+                filter_box.classList.remove("d-block");
+                layer.classList.remove("d-block");
+            }
+
+            // Attach event listener to search icon
+            searchIcon.addEventListener("click", toggleFilterBox);
+
+            // Attach event listener to layer to close popup on click
+            layer.addEventListener("click", closeFilterBox);
+
+            // Function to filter list items based on input
+            function filterList() {
+                let value = this.value.toLowerCase();
+                document.querySelectorAll("#myList li").forEach((item) => {
+                    item.style.display = item.textContent.toLowerCase().includes(value) ? "" : "none";
                 });
-            });
+            }
+
+            // Attach event listener to input field
+            document.getElementById("myInput").addEventListener("keyup", filterList);
         });
 
     </script>

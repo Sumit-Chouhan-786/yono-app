@@ -314,7 +314,8 @@ img {
   box-shadow: none;
 }
 .max_h_213 {
-  max-height: 213px !important;
+  max-height: 170px !important;
+  min-height: 170px !important;
 }
 .pt_20 {
   padding-top: 20px;
