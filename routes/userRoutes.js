@@ -6,8 +6,8 @@ const { getAllSliderIndex } = require("../controllers/sliderController");
 
 router.get("/", async (req, res) => {
   try {
-    const apps = await getAllAppsIndex(); 
-    const sliders = await getAllSliderIndex(); 
+    const apps = await getAllAppsIndex();
+    const sliders = await getAllSliderIndex();
     res.render("user-ui/index.ejs", { apps, sliders });
   } catch (err) {
     console.error("Error fetching data for the index page:", err);
@@ -22,9 +22,9 @@ router.get("/", async (req, res) => {
 // Route to fetch a specific app by ID
 router.get("/app/:id", async (req, res) => {
   try {
-    const allApps = await getAllAppsIndex(); 
+    const allApps = await getAllAppsIndex();
     const { id } = req.params;
-    const app = await App.findById(id); 
+    const app = await App.findById(id);
 
     if (!app) {
       return res.status(404).render("error", {
@@ -42,6 +42,16 @@ router.get("/app/:id", async (req, res) => {
         "An error occurred while loading the app details. Please try again later.",
     });
   }
+});
+
+router.get("/contact", (req, res) => {
+  res.render("user-ui/contact.ejs");
+});
+router.get("/about", (req, res) => {
+  res.render("user-ui/about.ejs");
+});
+router.get("/disclamier", (req, res) => {
+  res.render("user-ui/disclamier.ejs");
 });
 
 module.exports = router;

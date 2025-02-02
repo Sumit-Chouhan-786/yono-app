@@ -27,9 +27,9 @@
         <div class="layer"></div>
         <div class="position-absolute d-flex flex-column responshiv_nav pt-3">
             <i class="fa-solid mx-1 cursor_pointer fa-xmark text-black"></i>
-            <a href="#">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Contact Us</a>
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/contact">Contact Us</a>
         </div>
         <nav class="d-flex bg_green align-items-center py-2 justify-content-between custom_container position-relative">
             <!-- Filter box -->
@@ -77,19 +77,23 @@
             </div>
             <div class="col-sm-6 col-4 d-flex justify-content-end justify-content-sm-between">
                 <div class="col-sm-3">
-                    <a target="_blank" href="<%= app.downloadUrl %>" class="share_box"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" fill="none"
-                            viewBox="0 0 13 14">
+                    <a target="_blank" href="<%= app.downloadUrl %>" class="share_box"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="14" fill="none" viewBox="0 0 13 14">
                             <path fill="#4C4C4C" fill-rule="evenodd"
                                 d="M10.542 9.896c-.534 0-1.012.21-1.377.54L4.154 7.52a2.3 2.3 0 00.063-.492 2.3 2.3 0 00-.063-.492l4.954-2.888a2.106 2.106 0 003.542-1.54A2.106 2.106 0 0010.543 0a2.106 2.106 0 00-2.108 2.108c0 .17.028.33.063.492L3.542 5.49A2.106 2.106 0 000 7.029a2.106 2.106 0 003.542 1.538l5.004 2.924a1.982 1.982 0 00-.056.457c0 1.131.92 2.052 2.052 2.052 1.132 0 2.052-.92 2.052-2.052 0-1.132-.92-2.052-2.052-2.052z"
                                 clip-rule="evenodd"></path>
                         </svg></a>
                 </div>
                 <div class="col-sm-3 d-none d-sm-inline">
-                    <h5 class="mb-0 fs_sm fw-normal"><%= app.downloads %></h5>
+                    <h5 class="mb-0 fs_sm fw-normal">
+                        <%= app.downloads %>
+                    </h5>
                     <p class="mb-0 fs_xs">Downloads</p>
                 </div>
                 <div class="col-sm-3 d-none d-sm-inline">
-                    <h5 class="mb-0 fs_sm fw-normal"><%= app.size %></h5>
+                    <h5 class="mb-0 fs_sm fw-normal">
+                        <%= app.size %>
+                    </h5>
                     <p class="mb-0 fs_xs">Size</p>
                 </div>
                 <div class="col-sm-3 d-none d-sm-inline">
@@ -100,11 +104,15 @@
             </div>
             <div class="row justify-content-center mt-3 d-sm-none">
                 <div class="col-3">
-                    <h5 class="mb-0 fs_sm fw-normal"><%= app.downloads %></h5>
+                    <h5 class="mb-0 fs_sm fw-normal">
+                        <%= app.downloads %>
+                    </h5>
                     <p class="mb-0 fs_xs">Downloads</p>
                 </div>
                 <div class="col-3">
-                    <h5 class="mb-0 fs_sm fw-normal"><%= app.size %></h5>
+                    <h5 class="mb-0 fs_sm fw-normal">
+                        <%= app.size %>
+                    </h5>
                     <p class="mb-0 fs_xs">Size</p>
                 </div>
                 <div class="col-3">
@@ -125,8 +133,8 @@
                         <img height="10" width="10" src="/assets/img/golden-star.svg" alt="golden start">
                         <img height="10" width="10" src="/assets/img/golden-star.svg" alt="golden start">
                     </div>
-                    <div class="fs_xs mb-0"> 
-                    <%= app.reviews %>
+                    <div class="fs_xs mb-0">
+                        <%= app.reviews %>
                     </div>
                 </div>
                 <div class="d-flex">
@@ -135,11 +143,11 @@
                 </div>
             </div>
             <div class="mt-2">
-            <a target="_blank" href="<%= app.downloadUrl %>">
-                <button class="bg_green w-100 py-lg-3 py-sm-2 py-1 border-0 rounded-3 text-white">DOWNLOAD</button>
-            </a>
+                <a target="_blank" href="<%= app.downloadUrl %>">
+                    <button class="bg_green w-100 py-lg-3 py-sm-2 py-1 border-0 rounded-3 text-white">DOWNLOAD</button>
+                </a>
 
-                </div>
+            </div>
         </div>
         <div>
             <p class="fs_sm mb-2 mt-3">You may also like...</p>
@@ -155,7 +163,9 @@
                                 <p class="mb-0 fw-medium fs_xs text-black">
                                     <%= app.name %>
                                 </p>
-                                <p class="mb-0 fs_xs text-black">₹500</p>
+                                <p class="mb-0 fs_xs text-black">
+                                    <%= app.price %>
+                                </p>
                             </div>
                         </a>
                         <% }); %>
@@ -215,7 +225,9 @@
                                 <p class="mb-0 fw-medium fs_xs text-black">
                                     <%= app.name %>
                                 </p>
-                                <p class="mb-0 fs_xs text-black">₹500</p>
+                                <p class="mb-0 fs_xs text-black">
+                                    <%= app.price %>
+                                </p>
                             </div>
                         </a>
                         <% }); %>
@@ -228,32 +240,37 @@
         <div>
             <h3 class="text-center text-white">CONNECT WITH US</h3>
             <div class="d-flex justify-content-center gap-3">
-                <a href="#" class="social_links"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#" class="social_links"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="social_links"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="social_links"><i class="fa-brands fa-twitter"></i></a>
+                <a target="_blank" href="https://www.whatsapp.com/channel/0029Vb48RPwADTOA5Uw5N82u"
+                    class="social_links"><i class="fa-brands fa-whatsapp"></i></a>
+                <a target="_blank" href="https://t.me/allgamingapps" class="social_links"><i
+                        class="fa-brands fa-telegram"></i></a>
+                <a target="_blank" href="https://www.facebook.com/allgamingapps/" class="social_links"><i
+                        class="fa-brands fa-facebook"></i></a>
             </div>
         </div>
         <hr class="text-white">
         <div class="d-flex gap-sm-3 flex-column align-items-center flex-sm-row justify-content-center">
-            <a href="#" class="footer_btn d-flex gap-2 align-items-center"><i class="fa-regular fa-user"></i>About
+            <a href="/about" class="footer_btn d-flex gap-2 align-items-center"><i class="fa-regular fa-user"></i>About
                 Us</a>
-            <a href="#" class="footer_btn d-flex mt-4 mt-sm-0 gap-2 align-items-center"><i
+            <a href="/contact" class="footer_btn d-flex mt-4 mt-sm-0 gap-2 align-items-center"><i
                     class="fa-solid fa-phone"></i>Contact Us</a>
-            <a href="#" class="footer_btn d-flex mt-4 mt-sm-0 gap-2 align-items-center"><i
+            <a target="_blank" href="https://t.me/allgamingapps"
+                class="footer_btn d-flex mt-4 mt-sm-0 gap-2 align-items-center"><i
                     class="fa-solid fa-shield-halved"></i>Privacy Policy</a><br>
 
             <div class="d-flex justify-content-center d-sm-none   flex-column align-items-center flex-sm-row">
-                <a href="#" class="footer_btn d-flex gap-2 align-items-center"><i
+                <a href="/disclamier" class="footer_btn d-flex gap-2 align-items-center"><i
                         class="fa-solid fa-triangle-exclamation"></i>Disclaimer</a>
-                <a href="#" class="footer_btn d-flex gap-2 mt-4 align-items-center"><i
+                <a target="_blank" href="https://t.me/allgamingapps"
+                    class="footer_btn d-flex gap-2 mt-4 align-items-center"><i
                         class="fa-solid fa-address-card"></i>Terms & Condition</a>
             </div>
         </div>
         <div class="d-sm-flex d-none justify-content-center mt-3 gap-3 flex-column align-items-center flex-sm-row">
-            <a href="#" class="footer_btn d-flex gap-2 align-items-center"><i
+            <a href="/disclamier" class="footer_btn d-flex gap-2 align-items-center"><i
                     class="fa-solid fa-triangle-exclamation"></i>Disclaimer</a>
-            <a href="#" class="footer_btn d-flex gap-2 align-items-center"><i class="fa-solid fa-address-card"></i>Terms
+            <a target="_blank" href="https://t.me/allgamingapps" class="footer_btn d-flex gap-2 align-items-center"><i
+                    class="fa-solid fa-address-card"></i>Terms
                 &
                 Condition</a>
 

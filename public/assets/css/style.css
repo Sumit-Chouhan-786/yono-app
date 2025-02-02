@@ -319,3 +319,13 @@ img {
 .pt_20 {
   padding-top: 20px;
 }
+
+       
+        .social-links a {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #007bff;
+        }
+        .social-links a:hover {
+            color: #0056b3;
+        }
