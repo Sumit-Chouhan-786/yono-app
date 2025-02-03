@@ -62,6 +62,6 @@ app.use((err, req, res, next) => {
 });
 
 // Start the Express server
-app.listen(PORT, HOST, () => {
-  console.log(`Server is running on http://${HOST}:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
