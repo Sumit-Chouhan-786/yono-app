@@ -16,8 +16,7 @@ app.use(cookieParser());
 app.use(cors());
 
 // Set the environment variables
-const PORT = process.env.PORT || 3000; // Default to 3000 if PORT is not set
-const HOST = process.env.HOST || "0.0.0.0"; // Default to "0.0.0.0" if HOST is not set
+const PORT = process.env.PORT || 3000;
 
 // Middleware for logging HTTP requests
 app.use(morgan("dev"));
