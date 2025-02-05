@@ -6,8 +6,8 @@ const appController = require("../controllers/appController");
 const sliderController = require("../controllers/sliderController");
 
 //============================================================================== Public Routes
-// router.get("/signup", adminController.renderSignUp);
-// router.post("/signup", adminController.handleSignUp);
+router.get("/signup", adminController.renderSignUp);
+router.post("/signup", adminController.handleSignUp);
 
 router.get("/login", adminController.renderLogin);
 router.post("/login", adminController.handleLogin);
